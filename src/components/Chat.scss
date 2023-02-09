@@ -1,0 +1,13 @@
+@use "src/styles/mixins.scss";
+html, body, #root {
+    height: 100%;
+}
+.chat-wrapper {
+    height: 100%;
+    @include mixins.center;
+    flex-direction: column;
+    .chat-window {
+        width: 20rem;
+        height: 20rem;
+    }
+}

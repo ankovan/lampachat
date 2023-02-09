@@ -1,0 +1,4 @@
+@use "src/styles/mixins.scss";
+.ant-modal-title {
+  @include mixins.centerHorizontal;
+}
