@@ -1,4 +1,24 @@
 @use "src/styles/mixins.scss";
-.ant-modal-title {
-  @include mixins.centerHorizontal;
+@import "src/styles/variables.scss";
+.ant-modal {
+  .ant-modal-title {
+    @include mixins.centerHorizontal;
+    text-transform: uppercase;
+    color: $accent-color;
+    font-size: $header-font-size;
+    background-color: $secondary-color;
+  }
+  .ant-modal-content {
+    background-color: $secondary-color;
+  }
+  .ant-form-item .ant-form-item-label > label {
+    color: $second-accent-color;
+    font-size: $accent-font-size;
+    font-weight: 600;
+  }
+  .ant-form-item-control-input-content {
+    display: flex;
+    justify-content: end;
+  }
 }
+

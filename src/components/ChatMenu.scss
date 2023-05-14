@@ -1,0 +1,5 @@
+@use "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
+.ant-drawer .ant-drawer-content {
+  background-color: $secondary-color;
+}

@@ -1,32 +1,48 @@
-import { Modal, Button, Input } from 'antd';
+import { Modal, Button, Input, Form } from 'antd';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import {userActions} from '../redux/user'
 import './WelcomeModal.scss';
-export default function WelcomeModal({setSelectedUsername}) {
+export default function WelcomeModal() {
+  // const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
   const [open, setOpen] = useState(true);
   const [username, setUsername] = useState('');
-  const ChangeInput = event => {
+  const changeInput = event => {
     setUsername(event.target.value);
-  }  
-  const CloseModal = () => {
-    setSelectedUsername(username)
+  } 
+  const sendModalForm = () => {
+    dispatch(userActions.setUser({username, color: "string"}))
     setOpen(false);
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
   };
   return(
     <div id="modal">
         <Modal 
-          title="Welcome to Lampachat"
+          title="welcome to lampachat"
           closable={false} 
           open={open}
-          footer={[
-            <Button key="submit" type="primary" onClick={CloseModal}>OK</Button>
-          ]}
+          footer={false}
           >
-          <Input
-          placeholder="Username"
-          onChange={ChangeInput}
-          value={username}
+          <Form
+            onFinish={sendModalForm}
+            onFinishFailed={onFinishFailed}
           >
-          </Input>
+            <Form.Item
+              label="Tell us how to call you"
+              name="username"
+              rules={[{ required: true, message: 'Please input your username!' }]}
+            >
+              <Input placeholder='Username' onChange={changeInput} required/>
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                ok
+              </Button>
+            </Form.Item>
+          </Form>
         </Modal>
     </div>
   ) 

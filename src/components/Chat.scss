@@ -1,13 +1,63 @@
 @use "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
 html, body, #root {
-    height: 100%;
+    height: 100vh;
+}
+.message-wrapper.your-message {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 .chat-wrapper {
-    height: 100%;
-    @include mixins.center;
-    flex-direction: column;
-    .chat-window {
-        width: 20rem;
-        height: 20rem;
+    height: 100vh;
+    // @include mixins.center;
+    // flex-direction: column;
+    .chat-interface {
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 0;
+        .message-window {
+            margin-top: 2.6rem;
+            .message-content {
+                background-color: $neutral-color;
+                border-radius: 0.6rem;
+                display: flex;
+                flex-direction: column;
+                padding: 0.4rem;
+                margin-bottom: 1rem;
+                width: 50%;
+                #message-username {
+                    color: $second-accent-color;
+                    font-weight: 600;
+                }
+                #message-time {
+                    font-weight: 300;
+                }
+            }
+        }
+        .ant-card-body {
+            padding: 0;
+        }
+        .input-button-wrapper {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 0.4rem;
+            background-color: $secondary-color;
+            .chat-input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+    .input-button {
+        background-color: $secondary-color;
+        .button-input {
+            width: 100%;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     }
 }

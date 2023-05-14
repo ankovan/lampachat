@@ -1,1 +1,9 @@
-
+body, html {
+  background-color: #453F3C;
+}
+.main-layout {
+  &.resize {
+    position: relative;
+    width: calc(100% - 30rem);
+  }
+}

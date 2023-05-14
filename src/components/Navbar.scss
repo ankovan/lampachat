@@ -1,0 +1,14 @@
+@use "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
+.navbar-content {
+  background-color: $secondary-color;
+  color: $accent-color;
+  padding: 0.4rem;
+  font-size: $header-font-size;
+  text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  display: flex;
+  justify-content: space-between;
+}
