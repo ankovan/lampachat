@@ -3,6 +3,7 @@ services:
   lampachat:
     restart: always
     image: node:18.17.0
+    work_dirworking_dir: /app
     command: npm install && npm run build && npm run start
     volumes:
       - .:/app
