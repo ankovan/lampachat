@@ -24,7 +24,7 @@ export default function Message({ username, userMessage, date, isSystem }) {
                 },
                 img(props) {
                   const {node, ...rest} = props
-                  return <Image width={400} {...rest} />
+                  return <Image alt="" width={400} {...rest} />
                 }, 
                 code: Code, 
                 // img: Image 

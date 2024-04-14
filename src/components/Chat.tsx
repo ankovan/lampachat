@@ -67,7 +67,7 @@ export default function Chat() {
         // TODO: remove user from room
       });
     } 
-  }, [isUserInit])
+  }, [dispatch, isUserInit, username])
 
   useEffect(() => {
     // Initialize the socket connection only once
