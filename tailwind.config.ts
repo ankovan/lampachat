@@ -34,7 +34,7 @@ const config: Config = {
               divider: "#ffcc7a",
               content1: "#231E1B",
               primary: "#ffcc7a",
-              focus: "c84630",
+              focus: "#c84630",
           },
           layout: {
           }

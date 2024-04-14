@@ -1,0 +1,10 @@
+version: "3"
+services:
+  lampachat-back:
+    restart: always
+    image: node:18.17.0
+    command: npm install && npm run build && npm run start
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules
+      - ./.next:/app/.next

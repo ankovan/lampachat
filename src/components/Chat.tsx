@@ -12,7 +12,8 @@ import Message from "./Message";
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 
 export default function Chat() {
-  const PORT = 3001
+  // const HOST = `:6001`; DEV host
+  const HOST = `https://api.lampachat.ankovan.com`;
   const usersRef = useRef<any>({});
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState('');
@@ -22,7 +23,10 @@ export default function Chat() {
   const dispatch = useDispatch();
   useEffect (() => {
     if (isUserInit) {
-      socketRef.current = io(`:${PORT}`, { path: "/" });
+      socketRef.current = io(`https://api.lampachat.ankovan.com`, {
+        path: "/",
+        secure: true
+      });
 
 
       socketRef.current.on("connected", (message) => {
