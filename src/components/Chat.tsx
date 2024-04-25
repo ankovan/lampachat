@@ -13,7 +13,8 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 
 export default function Chat() {
   // const HOST = `:6001`; DEV host
-  const HOST = `https://api.lampachat.ankovan.com`;
+  const HOST = process.env.NEXT_PUBLIC_BACK_URL;
+  console.log("AAAAAAAAAAAAAAAAAA:", HOST);
   const usersRef = useRef<any>({});
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState('');
@@ -23,8 +24,8 @@ export default function Chat() {
   const dispatch = useDispatch();
   useEffect (() => {
     if (isUserInit) {
-      socketRef.current = io(`https://api.lampachat.ankovan.com`, {
-        path: "/",
+      socketRef.current = io(HOST, {
+        path: "/api",
         secure: true
       });
 
